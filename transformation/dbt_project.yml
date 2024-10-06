@@ -1,0 +1,24 @@
+name: 'transformation'
+version: '1.0.0'
+
+profile: 'transformation'
+
+# define where dbt looks for different types of files
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+# configure models
+models:
+  transformation:
+    # configuration for all models in 'models/transformed/'
+    transformed:
+      +schema: "tenant_{{ var('TENANT_ID') }}_transformed"
+      +materialized: table

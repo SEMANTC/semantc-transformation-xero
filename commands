@@ -1,0 +1,2 @@
+docker build -t my-dbt-app .
+docker run my-dbt-app

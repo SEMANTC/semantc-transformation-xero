@@ -1,0 +1,37 @@
+version: 2
+
+sources:
+  - name: raw
+    config:
+      enabled: true
+    schema: "tenant_{{ var('TENANT_ID') }}_raw"
+    tables:
+      - name: xero_accounts
+      - name: xero_bank_transactions
+      - name: xero_bank_transfers
+      - name: xero_batch_payments
+      - name: xero_branding_themes
+      - name: xero_budgets
+      - name: xero_contact_groups
+      - name: xero_contacts
+      - name: xero_credit_notes
+      - name: xero_currencies
+      - name: xero_invoices
+      - name: xero_items
+      - name: xero_journals
+      - name: xero_linked_transactions
+      - name: xero_manual_journals
+      - name: xero_organisation
+      - name: xero_overpayments
+      - name: xero_payment_services
+      - name: xero_payments
+      - name: xero_prepayments
+      - name: xero_purchase_orders
+      - name: xero_quotes
+      - name: xero_repeating_invoices
+      - name: xero_reports__balance_sheet
+      - name: xero_reports__bank_summary
+      - name: xero_reports__executive_summary
+      - name: xero_tracking_categories
+      - name: xero_users
+      - name: xero_tax_rates
