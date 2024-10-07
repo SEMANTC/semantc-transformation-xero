@@ -34,7 +34,7 @@ SELECT DISTINCT
     SAFE_CAST(JSON_VALUE(payload, '$.total_discount') AS FLOAT64) AS total_discount,
     SAFE_CAST(JSON_VALUE(payload, '$.total_tax') AS FLOAT64) AS total_tax,
     JSON_VALUE(payload, '$.type') AS type,
-    PARSE_TIMESTAMP('%Y-%m-%dT%H:%M:%S.%f%Ez', JSON_VALUE(payload, '$.updated_date_utc')) AS updated_date_utc,
+    PARSE_TIMESTAMP('%Y-%m-%dT%H:%M:%E6S%Ez', JSON_VALUE(payload, '$.updated_date_utc')) AS updated_date_utc,
     JSON_VALUE(payload, '$.url') AS url,
     ingestion_time
 FROM 

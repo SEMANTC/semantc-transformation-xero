@@ -6,7 +6,7 @@ WORKDIR /usr/app/dbt
 RUN pip install dbt-bigquery
 
 # copy dbt project files
-COPY ./transformation .
+COPY ./dbt .
 
 # copy the startup script
 COPY start.sh .
