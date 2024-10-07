@@ -10,11 +10,10 @@ SELECT DISTINCT
     JSON_VALUE(payload, '$.branding_theme_id') AS branding_theme_id,
     JSON_VALUE(payload, '$.cis_deduction') AS cis_deduction,
     JSON_VALUE(payload, '$.cis_rate') AS cis_rate,
-    -- contact_id is a foreign key to the contacts table
     JSON_VALUE(payload, '$.contact.contact_id') AS contact_id,
     JSON_VALUE(payload, '$.currency_code') AS currency_code,
     SAFE_CAST(JSON_VALUE(payload, '$.currency_rate') AS FLOAT64) AS currency_rate,
-    PARSE_DATE('%Y-%m-%d', JSON_VALUE(payload, '$.date')) AS invoice_date,
+    PARSE_DATE('%Y-%m-%d', JSON_VALUE(payload, '$.date')) AS date,
     PARSE_DATE('%Y-%m-%d', JSON_VALUE(payload, '$.due_date')) AS due_date,
     PARSE_DATE('%Y-%m-%d', JSON_VALUE(payload, '$.expected_payment_date')) AS expected_payment_date,
     PARSE_DATE('%Y-%m-%d', JSON_VALUE(payload, '$.fully_paid_on_date')) AS fully_paid_on_date,
