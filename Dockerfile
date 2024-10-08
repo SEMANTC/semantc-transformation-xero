@@ -12,5 +12,10 @@ COPY ./dbt .
 COPY start.sh .
 RUN chmod +x start.sh
 
-# run the startup script
+# set environment variables (to be overridden at runtime)
+ENV TENANT_ID=""
+ENV PROJECT_ID=""
+ENV PORT=8080
+
+# Run the startup script
 CMD ["./start.sh"]

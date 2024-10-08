@@ -1,2 +1,13 @@
 docker build -t my-dbt-app .
 docker run my-dbt-app
+
+
+docker build -t my-dbt-app .
+docker run \
+  -e TENANT_ID="b2aea85d_58da_4c2b_b7b8_4eda75d63ebe" \
+  -e PROJECT_ID="semantc-sandbox" \
+  my-dbt-app
+
+
+chmod +x scripts/build_push.sh                
+./scripts/build_push.sh
