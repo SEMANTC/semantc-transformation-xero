@@ -139,3 +139,8 @@ For future development, a **semantic layer** and **knowledge base** will be set 
 
 docker build -t gcr.io/[PROJECT-ID]/dbt-models-xero:latest .
 docker push gcr.io/[PROJECT-ID]/dbt-models-xero:latest
+
+
+
+chmod +x scripts/build_push.sh             
+./scripts/build_push.sh
