@@ -1,5 +1,5 @@
 {{ config(
-    tags=['transformed', 'xero', 'invoices', 'invoice__payments']
+    tags=['transformed', 'xero', 'invoices', 'payments']
 ) }}
 
 SELECT DISTINCT
@@ -9,4 +9,5 @@ SELECT DISTINCT
 FROM 
     {{ source('raw', 'xero_invoices') }},
     UNNEST(JSON_QUERY_ARRAY(payload, '$.payments')) AS payment
-WHERE JSON_VALUE(payment, '$.payment_id') IS NOT NULL
+WHERE 
+    JSON_VALUE(payment, '$.payment_id') IS NOT NULL
