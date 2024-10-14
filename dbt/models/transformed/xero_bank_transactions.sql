@@ -22,6 +22,6 @@ SELECT DISTINCT
     JSON_VALUE(payload, '$.url') AS url,
     JSON_VALUE(payload, '$.status_attribute_string') AS status_attribute_string,
     JSON_VALUE(payload, '$.validation_errors') AS validation_errors,
-    SAFE_CAST(JSON_VALUE(payload, '$.ingestion_time') AS TIMESTAMP) AS ingestion_time
+    ingestion_time
 FROM 
     {{ source('raw', 'xero_bank_transactions') }}

@@ -14,6 +14,6 @@ SELECT DISTINCT
     SAFE_CAST(JSON_VALUE(payload, '$.can_apply_to_revenue') AS BOOL) AS can_apply_to_revenue,
     SAFE_CAST(JSON_VALUE(payload, '$.display_tax_rate') AS FLOAT64) AS display_tax_rate,
     SAFE_CAST(JSON_VALUE(payload, '$.effective_rate') AS FLOAT64) AS effective_rate,
-    SAFE_CAST(JSON_VALUE(payload, '$.ingestion_time') AS TIMESTAMP) AS ingestion_time
+    ingestion_time
 FROM 
     {{ source('raw', 'xero_tax_rates') }}

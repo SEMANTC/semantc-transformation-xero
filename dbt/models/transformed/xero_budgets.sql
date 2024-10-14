@@ -8,6 +8,6 @@ SELECT DISTINCT
     JSON_VALUE(payload, '$.description') AS description,
     SAFE_CAST(JSON_VALUE(payload, '$.sort_order') AS INT64) AS sort_order,
     SAFE_CAST(JSON_VALUE(payload, '$.updated_date_utc') AS TIMESTAMP) AS updated_date_utc,
-    SAFE_CAST(JSON_VALUE(payload, '$.ingestion_time') AS TIMESTAMP) AS ingestion_time
+    ingestion_time
 FROM 
     {{ source('raw', 'xero_budgets') }}

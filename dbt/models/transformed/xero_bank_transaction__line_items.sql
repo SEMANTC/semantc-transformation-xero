@@ -16,7 +16,8 @@ SELECT DISTINCT
     JSON_VALUE(line_item, '$.tracking_category_option') AS line_item_tracking_category_option,
     JSON_VALUE(line_item, '$.line_item_id') AS line_item_id,
     SAFE_CAST(JSON_VALUE(line_item, '$.created_date_utc') AS TIMESTAMP) AS line_item_created_date_utc,
-    SAFE_CAST(JSON_VALUE(line_item, '$.updated_date_utc') AS TIMESTAMP) AS line_item_updated_date_utc
+    SAFE_CAST(JSON_VALUE(line_item, '$.updated_date_utc') AS TIMESTAMP) AS line_item_updated_date_utc,
+    ingestion_time
 FROM 
     {{ source('raw', 'xero_bank_transactions') }},
     UNNEST(JSON_QUERY_ARRAY(payload, '$.line_items')) AS line_item
