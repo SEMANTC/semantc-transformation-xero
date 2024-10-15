@@ -16,6 +16,7 @@ sources:
       - name: xero_contacts
       - name: xero_credit_notes
       - name: xero_currencies
+      - name: xero_employees
       - name: xero_expense_claims
       - name: xero_invoices
       - name: xero_items
