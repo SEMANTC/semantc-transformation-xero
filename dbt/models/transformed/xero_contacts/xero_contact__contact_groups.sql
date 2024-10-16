@@ -1,5 +1,5 @@
 {{ config(
-    tags=['transformed', 'xero', 'contacts', 'contact__group_contacts']
+    tags=['transformed', 'xero', 'contacts', 'group_contacts']
 ) }}
 
 SELECT DISTINCT
