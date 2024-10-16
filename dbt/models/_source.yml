@@ -30,8 +30,9 @@ sources:
       - name: xero_prepayments
       - name: xero_purchase_orders
       - name: xero_quotes
+      - name: xero_receipts
       - name: xero_repeating_invoices
-      - name: xero_reports__balance_sheet
+      - name: xero_report_balance_sheet
       - name: xero_reports__bank_summary
       - name: xero_reports__executive_summary
       - name: xero_tracking_categories
