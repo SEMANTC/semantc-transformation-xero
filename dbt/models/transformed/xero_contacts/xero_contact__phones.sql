@@ -12,4 +12,5 @@ SELECT DISTINCT
 FROM 
     {{ source('raw', 'xero_contacts') }},
     UNNEST(JSON_QUERY_ARRAY(payload, '$.phones')) AS phone
-WHERE JSON_VALUE(phone, '$.phone_type') IS NOT NULL
+WHERE 
+    JSON_VALUE(phone, '$.phone_type') IS NOT NULL

@@ -4,6 +4,8 @@
 
 SELECT DISTINCT
     JSON_VALUE(payload, '$.bank_transaction_id') AS bank_transaction_id,
+    JSON_VALUE(payload, '$.bank_account.account_id') AS bank_account_id,
+    JSON_VALUE(payload, '$.contact.contact_id') AS contact_id,
     JSON_VALUE(payload, '$.currency_code') AS currency_code,
     SAFE_CAST(JSON_VALUE(payload, '$.currency_rate') AS FLOAT64) AS currency_rate,
     SAFE_CAST(JSON_VALUE(payload, '$.date') AS DATE) AS date,

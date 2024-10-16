@@ -18,4 +18,5 @@ SELECT DISTINCT
 FROM 
     {{ source('raw', 'xero_contacts') }},
     UNNEST(JSON_QUERY_ARRAY(payload, '$.addresses')) AS address
-WHERE JSON_VALUE(address, '$.address_type') IS NOT NULL
+WHERE 
+    JSON_VALUE(address, '$.address_type') IS NOT NULL

@@ -1,10 +1,12 @@
 {{ config(
-    tags=['transformed', 'xero', 'budgets', 'tracking_categories']
+    tags=['transformed', 'xero', 'budgets', 'tracking']
 ) }}
 
 SELECT DISTINCT
     JSON_VALUE(payload, '$.budget_id') AS budget_id,
     JSON_VALUE(tracking, '$.tracking_category_id') AS tracking_category_id,
+    JSON_VALUE(tracking, '$.name') AS name,
+    JSON_VALUE(tracking, '$.option') AS option,
     ingestion_time
 FROM 
     {{ source('raw', 'xero_budgets') }},

@@ -1,5 +1,5 @@
 {{ config(
-    tags=['transformed', 'xero', 'contacts', 'persons']
+    tags=['transformed', 'xero', 'contacts', 'contact_persons']
 ) }}
 
 SELECT DISTINCT
@@ -12,4 +12,5 @@ SELECT DISTINCT
 FROM 
     {{ source('raw', 'xero_contacts') }},
     UNNEST(JSON_QUERY_ARRAY(payload, '$.contact_persons')) AS person
-WHERE JSON_VALUE(person, '$.first_name') IS NOT NULL OR JSON_VALUE(person, '$.last_name') IS NOT NULL
+WHERE 
+    JSON_VALUE(person, '$.first_name') IS NOT NULL OR JSON_VALUE(person, '$.last_name') IS NOT NULL
