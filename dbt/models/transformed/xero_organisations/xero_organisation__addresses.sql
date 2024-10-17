@@ -7,8 +7,6 @@ SELECT DISTINCT
     JSON_VALUE(address, '$.address_type') AS address_type,
     JSON_VALUE(address, '$.address_line1') AS address_line1,
     JSON_VALUE(address, '$.address_line2') AS address_line2,
-    JSON_VALUE(address, '$.address_line3') AS address_line3,
-    JSON_VALUE(address, '$.address_line4') AS address_line4,
     JSON_VALUE(address, '$.attention_to') AS attention_to,
     JSON_VALUE(address, '$.city') AS city,
     JSON_VALUE(address, '$.country') AS country,

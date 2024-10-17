@@ -1,6 +1,5 @@
 {{ config(
-    tags=['transformed', 'xero', 'linked_transactions'],
-    materialized='table'
+    tags=['transformed', 'xero', 'linked_transactions']
 ) }}
 
 SELECT DISTINCT
