@@ -33,8 +33,8 @@ sources:
       - name: xero_receipts
       - name: xero_repeating_invoices
       - name: xero_report_balance_sheet
-      - name: xero_reports__bank_summary
-      - name: xero_reports__executive_summary
+      - name: xero_report_bank_summary
+      - name: xero_report_executive_summary
       - name: xero_report_profit_and_loss
       - name: xero_tracking_categories
       - name: xero_tax_rates
