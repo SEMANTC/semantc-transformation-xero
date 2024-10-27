@@ -37,6 +37,7 @@ sources:
       - name: xero_report_budsummary
       - name: xero_report_executive_summary
       - name: xero_report_profit_and_loss
+      - name: xero_report_trial_balance
       - name: xero_tracking_categories
       - name: xero_tax_rates
       - name: xero_users

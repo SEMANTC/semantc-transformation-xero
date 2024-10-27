@@ -1,3 +1,5 @@
+-- models/transformed/xero_report_budget_summary.sql
+
 {{ config(
     materialized='table',
     tags=['transformed', 'xero', 'reports', 'budget_summary']
@@ -102,6 +104,32 @@ rows_parsed AS (
 ),
 
 normalized_data AS (
+
+    -- Handle Section Rows Without Cross Joining Months
+    SELECT
+        rp.report_id,
+        rp.report_date,
+        rp.report_name,
+        rp.report_type,
+        rp.updated_date_utc,
+        rp.report_titles,
+        rp.row_type,
+        rp.section_title,
+        rp.parent_section,
+        rp.level,
+        rp.row_label,
+        rp.account_id,
+        NULL AS month,
+        NULL AS amount,
+        rp.ingestion_time
+    FROM 
+        rows_parsed rp
+    WHERE 
+        rp.row_type = 'Section'
+
+    UNION ALL
+
+    -- Handle Row Entries with Cross Joining Months
     SELECT
         rp.report_id,
         rp.report_date,
@@ -116,17 +144,19 @@ normalized_data AS (
         rp.row_label,
         rp.account_id,
         m AS month,
-        SAFE_CAST(rp.amounts[ORDINAL(pos + 1)] AS FLOAT64) AS amount,
+        SAFE_CAST(rp.amounts[OFFSET(pos)] AS FLOAT64) AS amount,
         rp.ingestion_time
     FROM 
         rows_parsed rp
     CROSS JOIN 
         header h
     CROSS JOIN 
-        UNNEST(h.months) m WITH OFFSET pos
+        UNNEST(h.months) AS m WITH OFFSET pos
     WHERE 
-        (rp.row_label IS NOT NULL AND rp.row_label != '')
-        OR rp.row_type = 'Section'
+        rp.row_type = 'Row'
+        AND rp.row_label IS NOT NULL 
+        AND rp.row_label != ''
+
 )
 
 SELECT 
