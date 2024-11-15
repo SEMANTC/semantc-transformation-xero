@@ -13,7 +13,7 @@ COPY start.sh .
 RUN chmod +x start.sh
 
 # set environment variables (to be overridden at runtime)
-ENV TENANT_ID=""
+ENV USER_ID=""
 ENV PROJECT_ID=""
 ENV PORT=8080
 

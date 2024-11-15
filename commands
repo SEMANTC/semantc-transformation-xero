@@ -4,7 +4,7 @@ docker run my-dbt-app
 
 docker build -t my-dbt-app .
 docker run \
-  -e TENANT_ID="fecc92b0_b79d_4ecd_ac1a_91b5c9f3db74" \
+  -e USER_ID="0ag5jfph" \
   -e PROJECT_ID="semantc-sandbox" \
   my-dbt-app
 

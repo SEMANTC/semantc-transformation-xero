@@ -4,7 +4,7 @@ sources:
   - name: raw
     config:
       enabled: true
-    schema: "tenant_{{ var('TENANT_ID') }}_raw"
+    schema: "bq_{{ var('USER_ID') }}_raw"
     tables:
       - name: xero_accounts
       - name: xero_bank_transactions

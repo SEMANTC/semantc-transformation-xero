@@ -20,5 +20,5 @@ models:
   transformation:
     # configuration for all models in 'models/transformed/'
     transformed:
-      +schema: "tenant_{{ var('TENANT_ID') }}_transformed"
+      +schema: "bq_{{ var('USER_ID') }}_transformed"
       +materialized: table
